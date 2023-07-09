@@ -27,15 +27,34 @@ function getMessage() {
   };
 }
 
-async function sendEmail() {
+async function sendEmail1() {
   try {
     await sendGridMail.send(getMessage());
     console.log('Test email sent successfully');
   } catch (error) {
     console.error('Error sending test email');
     console.error(error);
-    if (error.response) {
-      console.error(error.response.body)
+    // if (error.response) {
+    //   console.error(error.response.body)
+    // }
+  }
+}
+
+
+class API1Gateway {
+  get(){
+    const { data } = axios.get('')
+    return {
+      id: data.id
+    }
+  }
+}
+
+class API2Gateway {
+  get(){
+    const { data } = axios.get('')
+    return {
+      messageId: data.messageId
     }
   }
 }
